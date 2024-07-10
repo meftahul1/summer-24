@@ -4,7 +4,7 @@ import Register from '../Pages/Register'
 import Home from "../layouts/HomeLayout";
 export const router = createBrowserRouter([
   {
-    path: "/home",
+    path: "/",
     element: <Home />
 
   },

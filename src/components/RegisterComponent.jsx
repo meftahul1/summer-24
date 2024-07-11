@@ -14,7 +14,7 @@ export default function LoginComponent() {
             let res = await RegisterAPI(credentials.email, credentials.password)
             // console.log(res?.user);
             toast.success('Register Successfully');
-            navigate('/home')
+            navigate('/login')
             
         } catch (err) {
             console.log(err);

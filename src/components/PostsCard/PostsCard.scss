@@ -1,0 +1,23 @@
+.posts-card {
+    border: 1px solid black;
+    
+    display: flex;
+    // flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    // align-items: center;
+    width: 550px;
+    border: 1px solid black;
+    padding-bottom: 50px;
+    border-radius: 6px;
+    margin-top: 30px;
+    min-height: auto;
+    
+}
+
+.posts-card p {
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+
+}

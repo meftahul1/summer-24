@@ -2,12 +2,11 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, GoogleAuthP
 import { auth } from '../firebaseConfig';
 
 
-export const LoginAPI = async (email, password) => {
+export const LoginAPI = (email, password) => {
     try {
-        let response = await signInWithEmailAndPassword(auth, email, password);
+        let response = signInWithEmailAndPassword(auth, email, password);
         return response;
     } catch (err) {
-        
         return err;
     }
 };

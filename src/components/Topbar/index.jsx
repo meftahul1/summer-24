@@ -20,7 +20,7 @@ export default function Topbar() { // surfer nav bar
             <div className='middle-section'>
                 <ul className='nav_items'>
                     <li className='nav-item' onClick={() => goToRoute('/home')}>Home</li>
-                    <li className='nav-item'>Learn</li>
+                    <li className='nav-item'>Events</li>
                     <li className='nav-item'>About</li>
                 </ul>
             </div>

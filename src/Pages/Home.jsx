@@ -12,7 +12,7 @@ export default function Home() {
     useEffect(() => {
         onAuthStateChanged(auth, (res) => {
             if(!res?.accessToken) {
-                navigate('/')
+                navigate('/home')
             } else {
                 setLoading(false)
             }

@@ -9,20 +9,19 @@ import { toast } from 'react-toastify'
 export default function LoginComponent() {
 
     let navigate = useNavigate();
-    const [credentials, setCredentials] = useState({email: '', password: ''}); //review email, pass
+    const [credentails, setCredentials] = useState({email: '', password: ''}); //review email, pass
     const [errors, setErrors] = useState({email: '', password: ''}); //review
 
 
     const login = async () => {
-        if (!credentials.email || !credentials.password) {
-            toast.error("Please fill in all fields");
-            return;
-        }
-    
+        // if (!credentails.email || !credentails.password) {
+        //     toast.error("Please fill in all fields");
+        //     return;
+        // }
         try {
-            let res = await LoginAPI(credentials.email, credentials.password);
+            let res = await LoginAPI(credentails.email, credentails.password);
             toast.success('Sign In Successfully');
-            navigate('/home');
+            // navigate('/home');
         } catch (err) {
             console.log(err);
             toast.error("Invalid Credentials");
@@ -62,11 +61,11 @@ export default function LoginComponent() {
         <div className="auth-inputs">
             <input type="email" className="common-input" placeholder='email@domain.com'
                 onChange={(event) => 
-                    setCredentials({...credentials, email: event.target.value})
+                    setCredentials({...credentails, email: event.target.value})
                 } />
             <input type="password" className="common-input" placeholder='Password'
                 onChange={(event) => 
-                    setCredentials({...credentials, password: event.target.value})
+                    setCredentials({...credentails, password: event.target.value})
                 } />
             
             <button className="login-btn" onClick={login}>

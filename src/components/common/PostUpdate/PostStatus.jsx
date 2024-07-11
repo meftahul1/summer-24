@@ -1,16 +1,24 @@
-import React, {useState} from 'react'
+import React, { useState, useMemo } from 'react'
 import './index.scss'
 import ModalComponent from '../Modal'
 import { Modal } from 'antd';
-import { PostStatusFirebase } from '../../../api/FirestoreAPI';
+import { PostStatusFirebase, getStatus } from '../../../api/FirestoreAPI';
+import PostsCard from '../../PostsCard/PostsCard';
 
 export default function PostStatus() {
 
   const [modalOpen, setModalOpen] = useState(false);
   const [status, setStatus] = useState('')
+  const [allStatuses, setAllStatus] = useState([]);
   const sendStatus = () => {
     PostStatusFirebase(status)
   };
+
+  useMemo(() => {
+    getStatus(setAllStatus);
+  }, [])
+
+  // console.log(allStatuses)
 
   return (
     <div className='post-container'>
@@ -28,6 +36,18 @@ export default function PostStatus() {
         sendStatus={sendStatus}
 
       />
+
+      
+      <div>
+        {allStatuses.map((posts) => {
+          return (
+            <React.Fragment key={posts.id}>
+               <PostsCard posts={posts}/>
+            </React.Fragment>
+            
+          );
+        })}
+      </div>
     </div>
   )
 }
